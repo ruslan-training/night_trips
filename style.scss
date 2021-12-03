@@ -1,0 +1,441 @@
+@import "source/scss/nullstyle.scss";
+@import "source/scss/mixin.scss";
+@import "source/scss/fonts.scss";
+
+
+
+.wrapper {
+	min-height: 100%;
+	opacity: 0;
+	transition: opacity 0.8s ease 0s;
+}
+.wrapper._loaded {
+	opacity: 1;
+}
+.wrapper._loaded .header {
+	transition: transform 0.8s ease 0.8s;
+	transform: translate(0px, 0px);
+}
+.wrapper._loaded .page__pagination {
+	transform: translate(0px, -50%);
+	opacity: 1;
+	visibility: visible;
+	transition: transform 0.6s ease 0.8s;
+}
+.wrapper._free .page__pagination {
+	transition: all 0.3s ease 0s;
+	transform: translate(50px, -50%);
+	opacity: 0;
+}
+/*----------------*/
+.header {
+    position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	padding: 40px 0px 0px 0px;
+
+	transform: translate(0px, -100%);
+}
+.container {
+    width: 1440px;
+    margin: 0 auto;
+
+    @media (max-width:1520px) {
+        width: 100%;
+        padding: 0 40px;
+    }
+}
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__logo {
+    max-width: 3.5vw;
+    padding: 14px 0;
+    width: 100%;
+}
+.header__logo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+.header__user {
+    display: flex;
+    align-items: center;
+}
+.user__search {
+    max-width: 24px;
+    width: 100%;
+    margin-right: 30px;
+}
+.user__search img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all .4s linear;
+}
+.user__search._active {
+    position: relative;
+    z-index: 1;
+    transition: all .4s linear;
+}
+.user__button {
+    position: relative;
+    top: 0;
+    padding: 16px 58px;
+    background: #00C9E0;
+    box-shadow: 5px 15px 40px rgba(0, 201, 224, 0.2);
+    border-radius: 48px;
+
+    font-family: "Larsseit";
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+    transition: all .4s linear;
+
+    @media (max-width:1440px) {
+        padding: 10px 50px;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        top: 50%;
+        right: -15px;
+        background: #FFFFFF;
+        border-radius: 16px;
+        transition: all .4s linear;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        top: 50%;
+        right: -15px;
+        background: #FFFFFF;
+        border-radius: 16px;
+        transition: all .4s linear;
+    }
+}
+.user__button:hover {
+    background: linear-gradient(180deg, rgba(1, 22, 39, 0) 0%, #011627 76%, #011627 100%);
+    transition: all .4s linear;
+}
+.user__button._active {
+    position: relative;
+    padding: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 0;
+    z-index: 1;
+    transition: all .4s linear;
+    background-color: transparent;
+    border: 1px solid #fff;
+    overflow: hidden;
+
+    box-shadow: 4px 4px 30px rgba(0, 201, 224, 0.2);
+
+    @media (max-width:1440px) {
+        width: 40px;
+        height: 40px;
+    }
+
+    &:after {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        transform: rotate(-45deg);
+        transition: all .4s linear;
+    }
+    &:before {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        transform: rotate(45deg);
+        transition: all .4s linear;
+    }
+}
+.screen__content._gradient {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15.625vw;
+	position: relative;
+	z-index: 2;
+    
+    &:after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(1, 22, 39, 0) 0%, #011627 76%, #011627 100%);
+    }
+}
+.screen__socials-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 1;
+}
+.screen__social img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.screen__social {
+    max-width: 24px;
+    width: 100%;
+    display: block;
+    margin-bottom: 30px;
+    transition: all .4s linear;
+}
+.screen__social:hover {
+    transform: scale(1.2);
+    overflow: hidden;
+    transition: all .4s linear;
+    filter: drop-shadow(0 0 4px rgba(0, 202, 224, .85));
+}
+.screen__link {
+    position: relative;
+    font-family: "Larsseit";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 190%;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    opacity: .9;
+    transform: rotate(-180deg);
+    writing-mode: vertical-lr;
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 80px;
+        left: 50%;
+        bottom: 115%;
+        background: linear-gradient(180deg, #09F4F4 0%, rgb(0, 202, 224) 100%);
+        border-radius: 13px;
+    }
+}
+.header__menu {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+
+    font-family: "Larsseit";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 190%;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+
+    transition: all .6s linear;
+    padding: 40px 0 0 0;
+
+
+}
+.header__menu._active {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    transition: all .6s linear;
+}
+.menu__link {
+	color: #fff;
+	font-size: 20px;
+	transition: color 0.3s ease 0s;
+	margin: 0px 20px 0px 0px;
+}
+.menu__link._active {
+	filter: drop-shadow(0 0 4px rgba(255, 255, 255, .85));
+}
+@media (max-width: 767px) {
+	.menu__link {
+		font-size: 12px;
+		margin: 0px 10px 0px 0px;
+	}
+}
+/*----------------*/
+.page {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+.page__wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+}
+.page__screen {
+
+}
+
+.page__pagination {
+	position: absolute;
+	top: 50%;
+	right: 50px;
+	transform: translate(50px, -50%);
+	opacity: 0;
+	visibility: hidden;
+	display: flex;
+	flex-direction: column;
+}
+.page__bullet {
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+	background-color: rgba(0, 201, 224, 0.5);
+	margin: 10px 0;
+	border-radius: 50%;
+	transition: background-color 0.3s ease 0s;
+}
+.page__bullet_active {
+	background-color: #fff;
+}
+.page__scroll {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 4px;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+.page__drag-scroll {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	cursor: pointer;
+}
+
+/*----------------*/
+.screen {
+	flex: 1 0 100%;
+	position: relative;
+}
+.screen__title {
+	font-family: "NoeDisplay";
+    font-weight: 700;
+    font-size: 6.250vw;
+    line-height: 7.969vw;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    text-align: center;
+
+    @media (max-width:1440px) {
+        font-size: 9.722vw;
+        line-height: 10.625vw;
+    }
+}
+.screen__sub-title {
+    font-family: "Larsseit";
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 2.604vw;
+    text-align: center;
+
+    @media (max-width:1440px) {
+        margin-bottom: 3.472vw;
+    }
+}
+.screen__text {
+    max-width: 643px;
+    width: 100%;
+    font-family: "Larsseit";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 150%;
+    text-align: center;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 10.417vw;
+}
+.screen__body {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+.screen__image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.screen__image img {
+	object-fit: cover;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.screen__socials-box {
+    display: flex;
+    align-items: flex-start;
+}
+.screen__socials {
+   
+}
+.screen__text {
+	font-size: 20px;
+	line-height: 130%;
+	color: #fff;
+}
+.screen__text p {
+	margin: 0px 0px 20px 0px;
+}
+.screen__text p:last-child {
+	margin-bottom: 0;
+}
+@media (max-width: 767px) {
+	.screen__title {
+		font-size: 40px;
+	}
+	.screen__text {
+		font-size: 16px;
+	}
+}
