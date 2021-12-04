@@ -449,6 +449,90 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 /*----------------*/
+.star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #FFF;
+  border-radius: 50%;
+  -webkit-filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+          filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+  z-index: 33;
+  -webkit-animation: fall 1.6s linear infinite;
+          animation: fall 1.6s linear infinite;
+}
+.star:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 150px;
+  height: 1px;
+  background: -webkit-gradient(linear, left top, right top, from(#fff), to(transparent));
+  background: linear-gradient(90deg, #fff, transparent);
+  -webkit-filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+          filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+}
+
+.star._one {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+  -webkit-animation-duration: 2.4s;
+          animation-duration: 2.4s;
+  top: 0;
+  right: 20%;
+}
+
+.star._two {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-duration: 1.6s;
+          animation-duration: 1.6s;
+  top: 0;
+  right: 10%;
+}
+
+.star._tree {
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  top: 0;
+  right: 30%;
+}
+
+@-webkit-keyframes fall {
+  0% {
+    -webkit-transform: rotate(315deg) translateX(0);
+            transform: rotate(315deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(315deg) translateX(-400px);
+            transform: rotate(315deg) translateX(-400px);
+    opacity: 0;
+  }
+}
+
+@keyframes fall {
+  0% {
+    -webkit-transform: rotate(315deg) translateX(0);
+            transform: rotate(315deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(315deg) translateX(-400px);
+            transform: rotate(315deg) translateX(-400px);
+    opacity: 0;
+  }
+}
 .page {
   position: fixed;
   width: 100%;

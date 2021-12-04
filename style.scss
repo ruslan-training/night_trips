@@ -175,7 +175,7 @@
     padding-top: 15.625vw;
 	position: relative;
 	z-index: 2;
-    
+
     &:after {
         position: absolute;
         content: '';
@@ -233,6 +233,8 @@
         border-radius: 13px;
     }
 }
+
+// ------------------------------ HEADER MENU FIXED
 .header__menu {
     position: fixed;
     display: flex;
@@ -285,6 +287,59 @@
 	}
 }
 /*----------------*/
+// STARS --------------------------
+.star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #FFF;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, .50));
+    z-index: 33;
+    animation: fall 1.6s linear infinite;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 150px;
+        height: 1px;
+        background: linear-gradient(90deg, #fff, transparent);
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, .50));
+    }
+}
+.star._one {
+    animation-delay: 0.2s;
+    animation-duration: 2.4s;
+    top: 0;
+    right: 20%;
+}
+.star._two {
+    animation-delay: 0.5s;
+    animation-duration: 1.6s;
+    top: 0;
+    right: 10%;
+}
+.star._tree {
+    animation-delay: 0.9s;
+    animation-duration: 2s;
+    top: 0;
+    right: 30%;
+}
+@keyframes fall {
+    0% {
+        transform: rotate(315deg) translateX(0);
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(315deg) translateX(-400px);
+        opacity: 0;
+    }
+}
+// END STARS ----------------------
 .page {
 	position: fixed;
 	width: 100%;
