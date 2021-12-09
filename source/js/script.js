@@ -8,6 +8,94 @@ let menuBtn = document.querySelector('.user__button'),
     })
 let wrapper = document.querySelector('.wrapper');
 
+let slider = new Swiper('.screen__slider', {
+	
+	// Свои классы
+	wrapperClass: "screen__slider-wrapper",
+	slideClass: "screen__slide",
+
+	
+	  // Навигация 
+	// Буллеты, текущее положение, прогрессбар
+	pagination: {
+		el: '.swiper-pagination',
+		clickable: true,
+		/*
+		// Буллеты
+		type: 'bullets',
+		clickable: true,
+		// Динамические буллеты
+		dynamicBullets: true,
+		// Кастомные буллеты
+		renderBullet: function (index, className) {
+			return '<span class="' + className + '">' + (index + 1) + '</span>';
+		},
+		*/
+		/*
+		// Фракция
+		type: 'fraction',
+		// Кастомный вывод фракции
+		renderFraction: function (currentClass, totalClass) {
+			return 'Фото <span class="' + currentClass + '"></span>' +
+				' из ' +
+				'<span class="' + totalClass + '"></span>';
+		},
+		*/
+		// Прогрессбар
+		type: 'progressbar',
+	},
+	
+	
+	// Количество слайдов для показа
+	slidesPerView: 'auto',
+
+	spaceBetween: 20,
+
+	autoplay: {
+		delay: 3000,
+	  },
+
+	// Управление клавиатурой
+	keyboard: {
+		// Включить\выключить
+		enabled: true,
+		// Включить\выключить
+		// только когда слайдер
+		// в пределах вьюпорта
+		onlyInViewport: true,
+		// Включить\выключить
+		// управление клавишами
+		// pageUp, pageDown
+		pageUpDown: true,
+	},
+
+	// Скорость
+	speed: 1800,
+
+
+	// Обновить свайпер
+	// при изменении элементов слайдера
+	observer: true,
+
+	// Обновить свайпер
+	// при изменении родительских
+	// элементов слайдера
+	observeParents: true,
+
+	// Обновить свайпер
+	// при изменении дочерних
+	// элементов слайда
+	observeSlideChildren: true,
+	
+	on: {
+		slideChange: function () {// Событие карусели
+			console.log();
+		},
+	},
+
+	
+});
+
 let pageSlider = new Swiper('.page', {
 	// Свои классы
 	wrapperClass: "page__wrapper",
