@@ -38,8 +38,8 @@
 
 	transform: translate(0px, -100%);
 
-    @include tablet {
-        padding: 20px 0 0 0;
+    @media (max-width:1440px) {
+        padding: 10px;
     }
 }
 .container {
@@ -49,6 +49,9 @@
     @media (max-width:1520px) {
         width: 100%;
         padding: 0 40px;
+    }
+    @include tablet {
+        padding: 0 15px;
     }
 }
 .header .container {
@@ -211,6 +214,7 @@
     padding-top: 15.625vw;
 	position: relative;
 	z-index: 2;
+    height: 100%;
 
     @include tablet {
         padding-top: 10vw;
@@ -223,8 +227,8 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh;
-        background: linear-gradient(to bottom, #01162700 0%, rgba(1, 22, 39, .85) 76%, rgb(1, 22, 39, .85) 100%);
+        height: 100%;
+        background: linear-gradient(to bottom, #01162700 0%, rgba(1, 22, 39, .85) 76%, rgb(1, 22, 39, 1) 100%);
     }
 }
 
@@ -311,14 +315,14 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 190%;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
     color: #FFFFFF;
 
     transition: all .6s linear;
     padding: 40px 0 0 0;
 
-    @include tablet {
-        padding: 20px 0 0 0;
+    @media (max-width:1440px) {
+        padding: 10px;
     }
 }
 .header__menu._active {
@@ -335,7 +339,7 @@
 }
 .menu__link {
 	color: #fff;
-	font-size: 1.667vw;
+	font-size: 16px;
 	transition: color 0.3s ease 0s;
 	margin: 0px 20px 0px 0px;
 }
@@ -511,17 +515,16 @@
     text-align: center;
     color: #FFFFFF;
     text-align: center;
-    margin-bottom: 10.417vw;
+    margin-bottom: 150px;
 
     @media (max-width:1440px) {
         font-size: 14px;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
     }
 
     @include mobile {
         max-width: 500px;
         font-size: 2vw;
-        margin-bottom: 50px;
     }
 }
 .screen__body {
@@ -551,7 +554,6 @@
 
 // ----------------------------------- SLIDER
 .screen__content._lights {
-    padding: 120px 0 0;
     background: url(img/bg__lights.png) center / cover no-repeat, #011627;
     height: 100%;
     display: flex;
@@ -607,6 +609,11 @@
         left: 10px;
         bottom: -40px;
     }
+}
+.slide__content-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .slide__title {
     font-family: "Noe Display";
@@ -768,34 +775,59 @@
     filter: drop-shadow(0 0 4px rgba(0, 202, 224, .85));
 }
 // -------------SLIDER
+
 .screen__content._lights .swiper-wrapper {
     display: flex;
     padding: 50px 0;
+}
+.screen__content._lights .swiper {
     position: relative;
+    padding: 100px 0 0 0;
 }
+.screen__content._lights .swiper-pagination {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: 40px;
+    left: 0;
 
-.swiper > .swiper-pagination-horizontal {
-    background: rgba(65, 234, 212, .3);
-    border-radius: 13px;
-} 
-.swiper > .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-    background: rgba(65, 234, 212, 1);
-    border-radius: 13px;
+    @media (max-width:1440px) {
+        top: 90px;
+    }
 }
-.swiper-button-prev {
-    position: absolute;
-    top: 50%;
-    left: 50px;
+.screen__content._lights .swiper-pagination > .swiper-pagination-bullet {
+    width: 25%;
+    height: auto;
+    background: transparent;
+    opacity: 0.3;
+    border-radius: 13px; 
+    margin: 0 !important;
+
+    font-family: 'Larsseit';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 110%;
+    text-align: center;
+    color: #41EAD4;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #41EAD4;
+    border-radius: 0;
+    transition: opacity .6s linear;
 }
-.swiper-button-next {
-    position: absolute;
-    top: 50%;
-    right: 50px;
+.screen__content._lights .swiper-pagination > .swiper-pagination-bullet-active {
+    background: transparent;
+    width: 25%;
+    height: auto;
+    opacity: 1;
+    color: #41EAD4;
+    transition: opacity .6s linear;
 }
 
 // ABOUT US----------------------------//
 
 .screen__content._about-us {
+    display: flex;
+    align-items: center;
     height: 100%;
     background: url(img/bg__lights.png) bottom / cover no-repeat, #011627;
 }
@@ -803,7 +835,7 @@
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    height: 100vh;
+    height: 100%;
 
     padding-top: 100px;
 }
@@ -815,7 +847,7 @@
         margin-right: 30px;
     }
 }
-.about-us__title {
+h3 {
     font-family: 'Noe Display';
     font-weight: 700;
     font-size: 72px;
@@ -826,7 +858,7 @@
     margin-bottom: 25px;
 
     @media (max-width:1440px) {
-        font-size: 4vw;
+        font-size: 3.5vw;
     }
 }
 .about-us__text {
@@ -879,7 +911,7 @@
     }
 
     @media (max-width:1440px) {
-        max-width: 395px;
+        max-width: 350px;
     }
 }
 .gallery__item:hover {
@@ -923,7 +955,130 @@
     transform:translateY(-50%);
 
     @media (max-width:1440px) {
-        max-width: 4.861vw;
-        right: -0.347vw;
+        max-width: 4.2vw;
+        width: 100%;
+        right: 0.347vw;
     }
+}
+// --------------- THOUGHTS
+
+.screen__content._thoughts {
+    background: #011627;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 120px;
+
+    @media (max-width: 1440px) {
+        padding-top: 70px;
+    }
+}
+.thoughts {
+    display: grid;
+    grid-template: repeat(2, auto) / repeat(2, 600px);
+    gap: 25px;
+
+    @media (max-width: 1440px) {
+        grid-template: repeat(2, auto) / repeat(2, 570px);
+        gap: 15px;
+        padding: 0 15px;
+    }
+
+    @include tablet {
+        grid-template: repeat(2, auto) / repeat(2, auto);
+        gap: 10px;  
+    }
+}
+.thoughts__card {
+    position: relative;
+    background: #02223B;
+    box-shadow: 0px 20px 30px rgba(0, 201, 224, 0.03);
+    border-radius: 5px;
+    padding: 75px 75px 75px 100px;
+
+    @media (max-width: 1440px) {
+        padding: 15px 25px 15px 50px;
+    }
+    @include tablet {
+        padding: 10px;
+    }
+}
+.thoughts__card img, .thoughts__abs-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.thoughts__abs-img {
+    position: absolute;
+    left: 50px;
+    width: 32px;
+    height: 25px;
+
+    @media (max-width: 1440px) {
+        left: 10px;
+        width: 27px;
+        height: 21px;
+    }
+    @include tablet {
+        left: unset;
+        right: 10px;
+        bottom: 20px;  
+    }
+}
+.thoughts__paragraph {
+    font-family: 'Larsseit';
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 190%;
+    color: #FFFFFF;
+
+    @media (max-width: 1440px) {
+        font-size: 14px;
+    }
+    @include tablet {
+        font-size: 12px;
+    }
+}
+.thoughts__paragraph:nth-child(1) {
+    font-weight: 700;
+    margin-bottom: 10px;
+
+    @media (max-width: 1440px) {
+        margin-bottom: 5px;
+    }
+}
+.thoughts__paragraph:nth-child(2) {
+    margin-bottom: 25px;
+
+    @media (max-width: 1440px) {
+        margin-bottom: 15px;
+    }
+
+    @include tablet {
+        margin-bottom: 5px;
+    }
+}
+.thoughts__img {
+    max-width: 80px;
+    width: 100%;
+
+    @include tablet {
+        max-width: 60px;
+    }
+}
+.thoughts__name {
+    font-family: 'Larsseit';
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 170%;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-left: 10px;
+}
+.thoughts__writer {
+    display: flex;
+    align-items: center;
 }

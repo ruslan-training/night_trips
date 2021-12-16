@@ -14,42 +14,26 @@ let slider = new Swiper('.screen__slider', {
 	wrapperClass: "screen__slider-wrapper",
 	slideClass: "screen__slide",
 
-	
 	  // Навигация 
 	// Буллеты, текущее положение, прогрессбар
 	pagination: {
 		el: '.swiper-pagination',
-		clickable: true,
-		/*
-		// Буллеты
 		type: 'bullets',
 		clickable: true,
-		// Динамические буллеты
-		dynamicBullets: true,
-		// Кастомные буллеты
+	
 		renderBullet: function (index, className) {
-			return '<span class="' + className + '">' + (index + 1) + '</span>';
-		},
-		*/
-		/*
-		// Фракция
-		type: 'fraction',
-		// Кастомный вывод фракции
-		renderFraction: function (currentClass, totalClass) {
-			return 'Фото <span class="' + currentClass + '"></span>' +
-				' из ' +
-				'<span class="' + totalClass + '"></span>';
-		},
-		*/
-		// Прогрессбар
-		type: 'progressbar',
+			let labels = ['Chill Adventure', 'Spooky Times', 'Desert Madness', 'Out in the wild'];
+			return '<div class="' + className + '">' + (labels[index]) + '</div>'; 
+		  },
+
+		draggable: true,
+		
 	},
 	
-	
-	// Количество слайдов для показа
-	slidesPerView: 'auto',
-
 	spaceBetween: 20,
+	simulateTouch: true,
+	touchAngle: 45,
+	touchRatio: 1,
 
 	autoplay: {
 		delay: 3000,
@@ -69,9 +53,19 @@ let slider = new Swiper('.screen__slider', {
 		pageUpDown: true,
 	},
 
+	breakpoints: {
+		320: {
+		  slidesPerView: 1,
+		  spaceBetween: 20
+		},
+		900: {
+			slidesPerView: 'auto',
+			spaceBetween: 20
+		  },
+	},
+
 	// Скорость
 	speed: 1800,
-
 
 	// Обновить свайпер
 	// при изменении элементов слайдера
@@ -86,13 +80,6 @@ let slider = new Swiper('.screen__slider', {
 	// при изменении дочерних
 	// элементов слайда
 	observeSlideChildren: true,
-	
-	on: {
-		slideChange: function () {// Событие карусели
-			console.log();
-		},
-	},
-
 	
 });
 
@@ -194,7 +181,7 @@ let pageSlider = new Swiper('.page', {
 	},
 });
 
-let menuLinks = document.querySelectorAll('.menu__link, .screen__link');
+let menuLinks = document.querySelectorAll('.menu__link');
 
 function menuSlider() {
 	if (menuLinks.length > 0) {
