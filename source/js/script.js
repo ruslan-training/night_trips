@@ -29,15 +29,16 @@ let slider = new Swiper('.screen__slider', {
 		draggable: true,
 		
 	},
-	
-	spaceBetween: 20,
+
+	slidesPerView: 1,
+	spaceBetween: 15,
 	simulateTouch: true,
 	touchAngle: 45,
 	touchRatio: 1,
 
-	autoplay: {
-		delay: 3000,
-	  },
+	// autoplay: {
+	// 	delay: 3000,
+	//   },
 
 	// Управление клавиатурой
 	keyboard: {
@@ -51,17 +52,6 @@ let slider = new Swiper('.screen__slider', {
 		// управление клавишами
 		// pageUp, pageDown
 		pageUpDown: true,
-	},
-
-	breakpoints: {
-		320: {
-		  slidesPerView: 1,
-		  spaceBetween: 20
-		},
-		900: {
-			slidesPerView: 'auto',
-			spaceBetween: 20
-		  },
 	},
 
 	// Скорость
