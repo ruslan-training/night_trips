@@ -36,9 +36,9 @@ let slider = new Swiper('.screen__slider', {
 	touchAngle: 45,
 	touchRatio: 1,
 
-	// autoplay: {
-	// 	delay: 3000,
-	//   },
+	autoplay: {
+		delay: 3000,
+	  },
 
 	// Управление клавиатурой
 	keyboard: {
@@ -56,6 +56,83 @@ let slider = new Swiper('.screen__slider', {
 
 	// Скорость
 	speed: 1800,
+
+	// Обновить свайпер
+	// при изменении элементов слайдера
+	observer: true,
+
+	// Обновить свайпер
+	// при изменении родительских
+	// элементов слайдера
+	observeParents: true,
+
+	// Обновить свайпер
+	// при изменении дочерних
+	// элементов слайда
+	observeSlideChildren: true,
+	
+});
+
+let sliderThoughts = new Swiper('.thoughts', {
+
+	pagination: {
+		el: '.swiper-pagination',
+		type: 'bullets',
+		clickable: true,
+		
+	
+	},
+
+	slidesPerView: 3,
+	spaceBetween: 15,
+	loop: true,
+	
+	simulateTouch: true,
+	touchAngle: 45,
+	touchRatio: 1,
+
+	breakpoints: {
+		320: {
+			slidesPerView: 1,
+		},
+		768: {
+			slidesPerView: 2,
+		},
+		1440: {
+			slidesPerView: 3,
+		},
+
+	},
+
+	autoplay: {
+		delay: 3000,
+	  },
+
+	// Управление клавиатурой
+	keyboard: {
+		// Включить\выключить
+		enabled: true,
+		// Включить\выключить
+		// только когда слайдер
+		// в пределах вьюпорта
+		onlyInViewport: true,
+		// Включить\выключить
+		// управление клавишами
+		// pageUp, pageDown
+		pageUpDown: true,
+	},
+
+	// Управление колесом мыши
+	mousewheel: {
+		// Чувствительность колеса мыши
+		sensitivity: 1,
+		// Класс объекта на котором
+		// будет срабатывать прокрутка мышью.
+		//eventsTarget: ".image-slider"
+	},
+
+	// Скорость
+	speed: 1200,
 
 	// Обновить свайпер
 	// при изменении элементов слайдера
