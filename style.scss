@@ -43,6 +43,9 @@ a {
     @media (max-width:1440px) {
         padding: 10px;
     }
+    @include mobile {
+        padding: 10px 0;
+    }
 }
 .container {
     width: 1440px;
@@ -65,6 +68,11 @@ a {
     max-width: 3.5vw;
     padding: 14px 0;
     width: 100%;
+
+    @include mobile {
+        max-width: 30px;
+        padding: 10px 10px 10px 0;
+    }
 }
 .header__logo img {
     width: 100%;
@@ -85,6 +93,9 @@ a {
     @include mobile {
         max-width: 2.667vw;
         margin-right: 15px;
+    }
+    @include mobile5s {
+        display: none;
     }
 }
 .user__search img {
@@ -113,7 +124,7 @@ a {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #FFFFFF;
-    transition: all .3s linear;
+    transition: all .4s linear;
 
     @include mobile {
         font-size: 1.778vw;
@@ -128,12 +139,17 @@ a {
         right: -15px;
         background: #FFFFFF;
         border-radius: 16px;
-        transition: all .3s linear;
+        transition: all .4s linear;
         
         @include mobile {
             width: 15px;
             height: 1px;
             right: -7.5px;
+
+            @include mobile5s {
+                width: 6px;
+                height: 1px;
+            }
         }
     }
     &:before {
@@ -145,7 +161,7 @@ a {
         right: -15px;
         background: #FFFFFF;
         border-radius: 16px;
-        transition: all .3s linear;
+        transition: all .4s linear;
 
          
         @include mobile {
@@ -155,10 +171,10 @@ a {
         }
     }
 
-    transition: all .3s linear;
+    transition: all .6s linear;
 }
 .user__button {
-    transition: all .3s linear;
+    transition: all .6s linear;
 
     @media (max-width:1440px) {
         padding: 10px 50px;
@@ -172,7 +188,7 @@ a {
 }
 .user__button:hover {
     background: linear-gradient(180deg, rgba(1, 22, 39, 0) 0%, #011627 90%, #011627 100%);
-    transition: all .3s linear;
+    transition: all .4s linear;
 }
 .user__button._active {
     position: relative;
@@ -182,10 +198,23 @@ a {
     border-radius: 50%;
     font-size: 0;
     z-index: 1;
-    transition: all .3s linear;
+    transition: all .4s linear;
     background-color: transparent;
     border: 1px solid #fff;
     overflow: hidden;
+
+    &:after {
+        @include mobile5s {
+            width: 6px;
+            height: 1px;
+        }   
+    }
+    &:before {
+        @include mobile5s {
+            width: 6px;
+            height: 1px;
+        }   
+    }
 
     box-shadow: 4px 4px 30px rgba(0, 201, 224, 0.2);
 
@@ -197,6 +226,11 @@ a {
     @include mobile {
         width: 30px;
         height: 30px;
+    }
+
+    @include mobile5s {
+        width: 16px;
+        height: 16px;
     }
 
     &:after {
@@ -310,6 +344,7 @@ a {
     top: -100%;
     width: 100%;
     height: 100%;
+    opacity: 0;
 
     font-family: "Larsseit";
     font-style: normal;
@@ -325,6 +360,13 @@ a {
     @media (max-width:1440px) {
         padding: 10px;
     }
+    @include mobile {
+        padding: 0;
+    }
+    @include mobile5s {
+        flex-wrap: wrap;
+        column-gap: 25px;
+    }
 }
 .header__menu._active {
     position: fixed;
@@ -335,23 +377,37 @@ a {
     top: 0;
     width: 100%;
     height: 100%;
+    column-gap: 20px;
+    opacity: 1;
     background: transparent;
     transition: all .6s linear;
+
+    @media (max-width:767px) {
+        column-gap: 10px;
+    }
+    @include mobile5s {
+        flex-wrap: wrap;
+        column-gap: 25px;
+    }
 }
 .menu__link {
 	color: #fff;
 	font-size: 16px;
-	transition: color 0.3s ease 0s;
-	margin: 0px 20px 0px 0px;
+	transition: color 0.4s ease 0s;
+
+    @include mobile {
+        font-size: 2vw;
+    }
+    @include mobile5s {
+        padding-top: 20px;
+        line-height: 130%;
+        font-size: 3vw;
+    }
 }
 .menu__link._active {
-	filter: drop-shadow(0 0 4px rgba(255, 255, 255, .85));
+	filter: drop-shadow(0 0 2px rgba(255, 255, 255, .85));
 }
-@media (max-width: 767px) {
-	.menu__link {
-		margin: 0px 10px 0px 0px;
-	}
-}
+
 /*----------------*/
 // STARS --------------------------
 .star {
@@ -447,20 +503,19 @@ a {
 .page__bullet_active {
 	background-color: #fff;
 }
-.page__scroll {
+.page .swiper-scrollbar {
 	position: absolute;
 	top: 0;
 	right: 0;
 	width: 4px;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.2);
+	background-color: rgba(255, 255, 255, .2);
 }
-.page__drag-scroll {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	background-color: rgba(0, 0, 0, 0.8);
+.page .swiper-scrollbar > .swiper-scrollbar-drag {
+    position: absolute;
+    top: 0;
+    right: 0;
+	background-color: rgb(255, 255, 255);
 	cursor: pointer;
 }
 
@@ -468,6 +523,9 @@ a {
 .screen {
 	flex: 1 0 100%;
 	position: relative;
+}
+.gradient__text-box {
+    flex: 1 1 auto;
 }
 .screen__title {
 	font-family: "NoeDisplay";
@@ -487,6 +545,10 @@ a {
         font-size: 7.22vw;
         margin-bottom: 5px;
     }
+
+    @include mobile5s {
+        font-size: 14vw;    
+    }
 }
 .screen__sub-title {
     font-family: "Larsseit";
@@ -504,6 +566,10 @@ a {
         margin-bottom: 20px;
     }
 
+    @include mobile5s {
+        font-size: 12px;    
+    }
+
 }
 .screen__text {
     max-width: 643px;
@@ -516,16 +582,19 @@ a {
     text-align: center;
     color: #FFFFFF;
     text-align: center;
-    margin-bottom: 150px;
 
     @media (max-width:1440px) {
         font-size: 14px;
-        margin-bottom: 70px;
     }
 
     @include mobile {
         max-width: 500px;
         font-size: 2vw;
+    }
+
+    @include mobile5s {
+        font-size: 12px;   
+        padding: 0 15px; 
     }
 }
 .screen__body {
@@ -580,6 +649,12 @@ a {
     display: flex;
     align-items: center; 
 
+    @include mobile5s {
+        @media (max-width:400px) {
+            flex-direction: column;
+        }
+    }
+
 }
 .slide__img img {
     width: 100%;
@@ -608,6 +683,15 @@ a {
     @media (max-width:767px) {
         padding: 0;
         flex: 0 1 55%;
+    }
+
+    @include mobile5s {
+        margin-right: 8px;
+    }
+
+    @media (max-width:400px) {
+        max-width: 290px;
+        margin-right: 0;
     }
 
 }
@@ -654,6 +738,11 @@ a {
     @include mobile {
         margin-bottom: 15px;
     }
+
+    @include mobile5s {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
 }
 .slide__text {
     max-width: 485px;
@@ -668,15 +757,36 @@ a {
     @media (max-width:1440px) {
         font-size: 14px;
     }
+
+    @include mobile5s {
+        max-width: 270px;
+        font-size: 12px;
+    }
+
+    @media (max-width:400px) {
+        max-width: 290px;
+    }
 }
 .slide__paragraph {
     margin-bottom: 20px;
+
+    @include mobile5s {
+        margin-bottom: 5px;
+    }
 }
 .slide__paragraph:last-child {
     margin-bottom: 50px;
 
     @media (max-width:767px) {
         margin-bottom: 20px;
+    }
+
+    @include mobile5s {
+        margin-bottom: 10px;
+    }
+
+    @media (max-width:400px) {
+        display: none;
     }
 }
 .slide__descr {
@@ -890,6 +1000,11 @@ a {
     @include mobile {
         padding-top: 0;
     }
+
+    @include mobile5s {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 .about-us__text-box {
     max-width: 321px;
@@ -899,14 +1014,18 @@ a {
         margin-right: 30px;
     }
 
-    
     @include mobile {
         max-width: 100%;
         flex: 0 1 70%;
         margin-right: 15px;
     }
+
+    @include mobile5s {
+        flex: 1 1 auto;
+        text-align: center;
+    }
 }
-h3 {
+.about-us h3 {
     font-family: 'Noe Display';
     font-weight: 700;
     font-size: 72px;
@@ -922,6 +1041,12 @@ h3 {
 
     @include mobile {
        margin-bottom: 10px;
+        font-size: 36px;
+    }
+
+    @include mobile5s {
+        text-align: center;
+        font-size: 24px;
     }
 }
 .about-us__text {
@@ -938,6 +1063,12 @@ h3 {
     @include mobile {
         font-size: 1.8vw;
     }
+
+    @include mobile5s {
+        text-align: center;
+        font-size: 12px;
+        line-height: 120%;
+    }
 }
 .about-us__paragraph:first-child, .about-us__paragraph:last-child {
     font-weight: 700;
@@ -947,14 +1078,18 @@ h3 {
 
     @include mobile {
         margin-bottom: 10px;
-     }
+    }
 }
 .about-us__paragraph:last-child {
     margin-bottom: 40px;
 
     @include mobile {
         margin-bottom: 20px;
-     }
+    }
+
+    @include mobile5s {
+        margin-bottom: 10px;
+    }
 }
 .about-us__gallery {
     display: grid;
@@ -968,6 +1103,10 @@ h3 {
 
     @include mobile {
         padding-right: 0;
+    }
+
+    @include mobile5s {
+        padding-top: 30px;
     }
 }
 .gallery__item img {
@@ -986,7 +1125,9 @@ h3 {
         left: 0;
         width: 100%;
         height: 100%;
+        opacity: 1;
         background: linear-gradient(to top left, rgba(1, 22, 39, .5));
+        transition: all .6s linear ;
     }
 
     @media (max-width:1440px) {
@@ -995,34 +1136,60 @@ h3 {
 }
 .gallery__item:hover {
     &:after {
-        content: 'View Profile';
-        background: transparent;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-
-        font-family: 'Noe Display';
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 110%;
-        text-align: center;
-        color: #011627;
-        padding: 20px 280px 0 20px;
+        opacity: .2;
+        transition: all  .6s linear ;
     }
 }
+.gallery__abs-item {
+    opacity: 0;
+    position: absolute;
+    left: -25px;
+    bottom: 15px;
+    background-color: #FFF;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-family: 'Larsseit';
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #000;
+    font-weight: 700;
+    transition: all .4s linear ;
+    br {
+        display: none;
+    }
+
+    @media (max-width:767px) {
+        left: -15px;
+        padding: 5px;
+        font-size: 12px;
+    }
+}
+.gallery__abs-item > span {
+    color: #011627;
+    font-weight: 700;
+}
+.gallery__item:hover .gallery__abs-item {
+    opacity: 1;
+    transition: opacity .4s linear ;
+}
 .about-us__button {
-    transition: all .3s linear;
+    transition: all .6s linear;
     padding: 19px 48px;
+
+    &:after {
+        opacity: 0;
+        background: linear-gradient(180deg, rgba(1, 22, 39, 0) 0%, #011627 90%, #011627 100%);
+        transition: all .6s linear;
+    }
 
     @include tablet {
         padding: 10px 20px;
     }
 }
 .about-us__button:hover {
+    opacity: 1;
     background: linear-gradient(180deg, rgba(1, 22, 39, 0) 0%, #011627 90%, #011627 100%);
-    transition: all .3s linear;
+    transition: all .6s linear;
 }
 .gallery__item-abs img {
     width: 100%;
@@ -1060,6 +1227,14 @@ h3 {
         padding-top: 70px;
     }
 }
+.thoughts__body {
+    height: 100%;
+}
+.thoughts__wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
 // --------------------------------------------------- SLIDER TESTIMONIALS
 .screen__content._thoughts > .swiper-wrapper {
     overflow: hidden;
@@ -1085,19 +1260,39 @@ h3 {
    background: #41EAD4;
    opacity: 0.3;
    transition: opacity .4s linear;
-
-   @include mobile {
-       width: 7px;
-       height: 7px;
-   }
 }
 .thoughts .swiper-pagination-bullet-active {
+    position: relative;
     background: #41EAD4;
     opacity: 1;
     transition: opacity .4s linear;
-    filter: drop-shadow(0 0 2px rgba(0, 202, 224, .85));
+    filter: drop-shadow(0 0 1px rgba(0, 202, 224, .85));
+    transition: all .6s linear;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        border: 1px solid #41EAD4;
+        border-radius: 50%;
+        filter: drop-shadow(0 0 1px rgba(0, 202, 224, .85));
+        transition: all .6s linear;
+    }
+    &:before {
+
+    }
  }
 .screen__content._thoughts h3 {
+    font-family: 'Noe Display';
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 110%;
+    text-align: center;
+    color: #FFFFFF;
     display: flex;
     justify-content: center;
     padding-top: 170px;
@@ -1108,6 +1303,16 @@ h3 {
 
     @include tablet {
         padding-top: 3vw;
+    }
+
+    @include mobile {
+        font-size: 48px;
+    }
+
+    @include mobile5s {
+        font-size: 22px;
+        line-height: 50%;
+        margin-bottom: 0;
     }
 }
 
@@ -1137,6 +1342,9 @@ h3 {
 
     @include mobile {
         right: 25px;
+    }
+    @include mobile5s {
+        display: none;
     }
 }
 .thoughts__writer {
@@ -1211,11 +1419,39 @@ h3 {
         z-index: -1;
     }
 }
-
+.footer .container {
+    height: 100%;
+}
+.footer-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 .footer h3 {
-    padding-top: 100px;
+    font-family: 'Noe Display';
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 110%;
+    text-align: center;
+    color: #FFFFFF;
+    padding-top: calc(100% - 75%);
     margin-bottom: 30px;
     text-align: center;
+
+    @media (max-width: 1440px) {
+        padding-top: 100px;
+    }
+    @include mobile {
+        padding-top: 150px;
+        margin-bottom: 15px;
+        font-size: 48px;
+    }
+
+    @include mobile5s {
+        font-size: 22px;
+        margin-bottom: 80px;
+    }
+
 }
 .footer h4 {
     font-family: 'Larsseit';
@@ -1230,23 +1466,43 @@ h3 {
     @include tablet {
         padding-bottom: 50px;
     }
+    @include mobile {
+        font-size: 18px;
+        padding-bottom: 50px;
+    }
+
+    @include mobile5s {
+        display: none;
+    }
 }
 .footer__nav { 
     display: flex;
     justify-content: space-between;
     align-content: flex-start;
-    margin-bottom: 100px;
+    flex: 1 1 auto;
 
-    @include tablet {
-       margin-bottom: 7.333vw;
+    @include mobile5s {
+        flex-wrap: wrap;
     }
 }
 .footer__nav-el {
     display: flex;
     justify-content: space-between;
     align-content: flex-start;
+    column-gap: 10px;
 
     flex: 0 1 70%;
+
+    @include mobile5s {
+        flex-wrap: wrap;
+        flex: 0 1 50%;
+    }
+
+}
+.footer__spoller {
+    @include mobile5s {
+        flex: 1 1 50%;
+    }
 }
 .list-title {
     position: relative;
@@ -1257,9 +1513,16 @@ h3 {
     text-transform: uppercase;
     color: #FFFFFF;
     padding-bottom: 20px;
+    margin-bottom: 15px;
     display: block;
-    margin-bottom: 20px;
     transition: all .3s linear;
+    background-color: transparent;
+
+    @include mobile5s {
+        padding-right: 30px;
+        padding-bottom: 10px;
+        margin-bottom: 0;
+    }
 
     &:after {
         content: '';
@@ -1269,6 +1532,20 @@ h3 {
         width: 50px;
         height: 1px;
         background: #41EAD4;
+        
+        @include mobile5s {
+            content: '';
+            position: absolute;
+            left: unset;
+            bottom: 20px;
+            right: 10px;
+            width: 15px;
+            height: 2px;
+            background: #41EAD4;
+            transform: rotate(45deg);
+            border: none;
+            transition: all 0.6s linear;
+        }
     }
     &:before {
         content: '';
@@ -1279,12 +1556,51 @@ h3 {
         height: 5px;
         border: 1px solid #41EAD4;
         transform: translate(1px, 2px) rotate(45deg);
+
+        @include mobile5s {
+            content: '';
+            position: absolute;
+            left: unset;
+            bottom: 20px;
+            right: 0px;
+            width: 15px;
+            height: 2px;
+            background: #41EAD4;
+            transform: translate(0, 0) rotate(-45deg);
+            transition: all 0.6s linear;
+        }
+    }
+
+    @include mobile {
+        font-size: 14px;
+    }
+    @include mobile5s {
+        padding-bottom: 10px;
+    }
+}
+.list-title._active {
+    &:after {       
+        @include mobile5s {
+            transform: rotate(135deg);
+            transition: all 0.3s linear;
+        }
+    }
+    &:before {
+
+        @include mobile5s {
+            transform: translate(0, 0) rotate(-135deg);
+            transition: all 0.3s linear;
+        }
     }
 }
 .footer__item {
-    padding-bottom: 13px;
+    padding-bottom: 10px;
     transition: all 0.6s linear;
     transition-delay: 0.6s;
+
+    @include mobile5s {
+        margin-bottom: 10px;
+    }
 
     &:after {
         content: '';
@@ -1292,10 +1608,11 @@ h3 {
         bottom: 0;
         left: 0;
         width: 0px;
-        height: 0px;
+        height: 1px;
         background: #41EAD4;
         transition: all 0.6s linear;
         transition-delay: .3s;
+
     }
     &:before {
         content: '';
@@ -1308,7 +1625,10 @@ h3 {
         opacity: 0;
         transform: translate(1px, 2px) rotate(0deg);
         transition: all 0.3s linear;
+
+       
     }
+
 }
 .footer__item:hover  {
     filter: drop-shadow(0 0 4px rgba(0, 202, 224, .85));
@@ -1323,6 +1643,7 @@ h3 {
         height: 1px;
         background: #41EAD4;
         transition: all 0.6s linear;
+
     }
     &:before {
         content: '';
@@ -1339,7 +1660,7 @@ h3 {
     }
 }
 .footer__item:not(:last-child) {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 .footer__link {
     font-family: 'Larsseit';
@@ -1348,20 +1669,38 @@ h3 {
     line-height: 19px; 
     color: #FFFFFF;
     transition: all .3s linear;
+
+    @include mobile {
+        font-size: 13px;
+    }
 }
 .list-title:hover {
     transition: all .3s linear;
     filter: drop-shadow(0 0 4px rgba(0, 202, 224, .85));
 }
+.footer__nav-socials .list-title {
+    @include mobile5s {
+        padding-right: 0;
+    }  
+    &:after, &:before {
+        @include mobile5s {
+            display: none;
+        }     
+    }
+}
 .footer__socials {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 .footer__socials .list-title {
     flex: 0 0 100%;
 }
 .footer__socials .footer__item:not(:last-child) {
     margin: 0 25px 0 0;
+
+    @include mobile {
+        margin-right: 10px;
+    }
 }
 .footer__socials .footer__item:hover {
     transform: scale(1.2);
@@ -1399,4 +1738,8 @@ h3 {
     line-height: 25px;
     text-align: center;
     color: #FFFFFF;
+
+    @include mobile5s {
+        font-size: 14px;
+    }
 }
