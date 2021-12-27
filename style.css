@@ -316,6 +316,12 @@ a {
     line-height: normal;
   }
 }
+@media (max-width: 600px) {
+  .user__button {
+    padding: 3px 20px;
+    font-size: 13px;
+  }
+}
 
 .user__button:hover {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(1, 22, 39, 0)), color-stop(90%, #011627), to(#011627));
@@ -757,20 +763,21 @@ a {
   background-color: #fff;
 }
 
-.page .swiper-scrollbar {
+.page__scroll {
   position: absolute;
   top: 0;
   right: 0;
   width: 4px;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
-.page .swiper-scrollbar > .swiper-scrollbar-drag {
+.page__drag-scroll {
   position: absolute;
   top: 0;
-  right: 0;
-  background-color: white;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
 }
 
@@ -1569,6 +1576,12 @@ a {
     font-size: 12px;
   }
 }
+@media (max-width: 600px) {
+  .gallery__abs-item {
+    left: -5px;
+    bottom: 10px;
+  }
+}
 
 .gallery__abs-item > span {
   color: #011627;
@@ -2046,6 +2059,8 @@ a {
   width: 50px;
   height: 1px;
   background: #41EAD4;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
 }
 @media (max-width: 600px) {
   .list-title:after {
@@ -2060,8 +2075,6 @@ a {
     -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
     border: none;
-    -webkit-transition: all 0.6s linear;
-    transition: all 0.6s linear;
   }
 }
 .list-title:before {
@@ -2074,6 +2087,8 @@ a {
   border: 1px solid #41EAD4;
   -webkit-transform: translate(1px, 2px) rotate(45deg);
           transform: translate(1px, 2px) rotate(45deg);
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
 }
 @media (max-width: 600px) {
   .list-title:before {
@@ -2087,8 +2102,6 @@ a {
     background: #41EAD4;
     -webkit-transform: translate(0, 0) rotate(-45deg);
             transform: translate(0, 0) rotate(-45deg);
-    -webkit-transition: all 0.6s linear;
-    transition: all 0.6s linear;
   }
 }
 @media (max-width: 899px) {
@@ -2102,6 +2115,10 @@ a {
   }
 }
 
+.list-title._active {
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
 @media (max-width: 600px) {
   .list-title._active:after {
     -webkit-transform: rotate(135deg);
