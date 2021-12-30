@@ -224,7 +224,7 @@ let pageSlider = new Swiper('.page', {
 		el: '.page__scroll',
 		dragClass: "page__drag-scroll",
 		// Возможность перетаскивать скролл
-		draggable: true
+		draggable: true,
 	},
 
 	// Отключаем автоинициализацию
@@ -411,7 +411,7 @@ if (spollersArray.length > 0) {
 }
 //========================================================================================================================================================
 //SlideToggle
-let _slideUp = (target, duration = 500) => {
+let _slideUp = (target, duration = 800) => {
 	if (!target.classList.contains('_slide')) {
 		target.classList.add('_slide');
 		target.style.transitionProperty = 'height, margin, padding';
@@ -438,7 +438,7 @@ let _slideUp = (target, duration = 500) => {
 		}, duration);
 	}
 }
-let _slideDown = (target, duration = 500) => {
+let _slideDown = (target, duration = 800) => {
 	if (!target.classList.contains('_slide')) {
 		target.classList.add('_slide');
 		if (target.hidden) {
@@ -468,7 +468,7 @@ let _slideDown = (target, duration = 500) => {
 		}, duration);
 	}
 }
-let _slideToggle = (target, duration = 500) => {
+let _slideToggle = (target, duration = 800) => {
 	if (target.hidden) {
 		return _slideDown(target, duration);
 	} else {

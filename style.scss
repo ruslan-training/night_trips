@@ -46,6 +46,9 @@ a {
     @include mobile {
         padding: 10px 0;
     }
+    @include mobile5s {
+        display: none;
+    }
 }
 .container {
     width: 1440px;
@@ -191,7 +194,7 @@ a {
     }
 }
 .user__button:hover {
-    background: linear-gradient(180deg, rgba(1, 22, 39, 0) 0%, #011627 90%, #011627 100%);
+    background: linear-gradient(180deg, rgba(1, 22, 39, 0) 0%, #011627 90%);
     transition: all .4s linear;
 }
 .user__button._active {
@@ -258,7 +261,6 @@ a {
     flex-direction: column;
     align-items: center;
     padding-top: 15vw;
-	position: relative;
 	z-index: 2;
     height: 100%;
 
@@ -269,8 +271,10 @@ a {
     @media (max-width: 767px) {
         padding-top: 180px;  
     }
+    @include mobile5s {
+        padding-top: 120px;
+    }
 }
-
 .screen__socials-box {
     position: relative;
     display: flex;
@@ -367,10 +371,6 @@ a {
     @include mobile {
         padding: 0;
     }
-    @include mobile5s {
-        flex-wrap: wrap;
-        column-gap: 25px;
-    }
 }
 .header__menu._active {
     position: fixed;
@@ -389,10 +389,6 @@ a {
     @media (max-width:767px) {
         column-gap: 10px;
     }
-    @include mobile5s {
-        flex-wrap: wrap;
-        column-gap: 25px;
-    }
 }
 .menu__link {
 	color: #fff;
@@ -403,7 +399,6 @@ a {
         font-size: 2vw;
     }
     @include mobile5s {
-        padding-top: 20px;
         line-height: 130%;
         font-size: 3vw;
     }
@@ -510,7 +505,7 @@ a {
 	right: 0;
 	width: 4px;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.2);
+	background-color: rgba(0,0, 0, 0.2);
 }
 .page__drag-scroll {
 	position: absolute;
@@ -637,7 +632,7 @@ a {
 // ----------------------------------- SLIDER ----------------------------------------------------------------
 .screen__content._lights {
     position: relative;
-    background: linear-gradient(to bottom, rgb(1, 22, 39, 1) 0%, rgb(1, 22, 39, .95) 20%, rgb(1, 22, 39, 1) 95%), url(img/bg__lights.png) center / cover no-repeat;
+    background: linear-gradient(to bottom, rgb(1, 22, 39)), url(img/bg__lights.png) center / cover no-repeat;
     height: 100%;
     display: flex;
     align-items: center;
@@ -850,7 +845,7 @@ a {
     }
 }
 .slide__button:hover {
-    background: linear-gradient(180deg, rgba(1, 22, 39, 0) 0%, #011627 90%, #011627 100%);
+    background: linear-gradient(180deg, rgba(1, 22, 39, 0) 0%, #011627 90%);
     transition: all .3s linear;
 }
 .slide__socials {
@@ -933,11 +928,20 @@ a {
 
 .screen__content._lights .swiper-wrapper {
     display: flex;
-    padding: 50px 0;
+    padding: 50px 0 0 0;
+
+    @include mobile5s {
+        padding: 75px 0 0 0;
+    }
 }
 .screen__content._lights .swiper {
     position: relative;
     padding: 100px 0 0 0;
+
+    @include mobile5s {
+        padding: 0;
+    }
+
 }
 .screen__content._lights .swiper-pagination {
     position: absolute;
@@ -948,6 +952,10 @@ a {
 
     @media (max-width:1440px) {
         top: 90px;
+    }
+
+    @include mobile5s {
+        top: 0;
     }
 }
 .screen__content._lights .swiper-pagination > .swiper-pagination-bullet {
@@ -989,7 +997,7 @@ a {
     display: flex;
     align-items: center;
     height: 100%;
-    background: linear-gradient(to bottom, rgb(1, 22, 39, 1) 0%, rgb(1, 22, 39, .95) 20%, rgb(1, 22, 39, 1) 95%), url(img/bg__lights.png) center / cover no-repeat;
+    background: linear-gradient(to bottom, rgb(1, 22, 39)), url(img/bg__lights.png) center / cover no-repeat;
 }
 .screen__about-us {
     display: flex;
@@ -1004,6 +1012,7 @@ a {
     }
 
     @include mobile5s {
+        padding: 10px 0;
         flex-direction: column;
         align-items: center;
     }
@@ -1135,6 +1144,10 @@ a {
     @media (max-width:1440px) {
         max-width: 350px;
     }
+
+    @include mobile5s {
+        max-width: 250px;
+    }
 }
 .gallery__item:hover {
     &:after {
@@ -1185,7 +1198,7 @@ a {
 
     &:after {
         opacity: 0;
-        background: linear-gradient(180deg, rgba(1, 22, 39, 0) 0%, #011627 90%, #011627 100%);
+        background: linear-gradient(180deg, rgba(1, 22, 39, 0) 0%, #011627 90%);
         transition: all .6s linear;
     }
 
@@ -1195,7 +1208,7 @@ a {
 }
 .about-us__button:hover {
     opacity: 1;
-    background: linear-gradient(180deg, rgba(1, 22, 39, 0) 0%, #011627 90%, #011627 100%);
+    background: linear-gradient(180deg, rgba(1, 22, 39, 0) 0%, #011627 90%);
     transition: all .6s linear;
 }
 .gallery__item-abs img {
@@ -1226,12 +1239,15 @@ a {
 
 .screen__content._thoughts {
     position: relative;
-    background: linear-gradient(to bottom, rgb(1, 22, 39, 1) 0%, rgb(1, 22, 39, .95) 20%, rgb(1, 22, 39, 1) 95%);
+    background: linear-gradient(to bottom, rgb(1, 22, 39));
     height: 100%;
     width: 100%;
 
     @media (max-width: 1440px) {
         padding-top: 70px;
+    }
+    @include mobile5s {
+        padding: 0;
     }
 }
 .thoughts__body {
@@ -1334,6 +1350,10 @@ a {
     @include mobile {
         padding: 35px 15px 75px 15px;
     }
+
+    @include mobile5s {
+        text-align: center;
+    }
 }
 .thoughts__abs-img {
     position: absolute;
@@ -1357,6 +1377,11 @@ a {
 .thoughts__writer {
     display: flex;
     align-items: center;
+
+    
+    @include mobile5s {
+       justify-content: center;
+    }
 }
 .thoughts__text {
     max-width: 580px;
@@ -1422,7 +1447,7 @@ a {
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(to bottom, rgb(1, 22, 39, 1) 0%, rgb(1, 22, 39, .95) 20%, rgb(1, 22, 39, 1) 95%);
+        background: linear-gradient(to bottom, rgb(1, 22, 39));
         z-index: -1;
     }
 }
@@ -1455,8 +1480,9 @@ a {
     }
 
     @include mobile5s {
+        padding-top: 100px;
         font-size: 22px;
-        margin-bottom: 80px;
+        margin-bottom: 100px;
     }
 
 }
@@ -1492,7 +1518,7 @@ a {
         flex-wrap: wrap;
     }
 }
-.footer__nav-el {
+.footer__accordeon {
     display: flex;
     justify-content: space-between;
     align-content: flex-start;
@@ -1590,14 +1616,14 @@ a {
     
     &:after {       
         @include mobile5s {
-            transform: rotate(135deg);
+            transform: rotate(-45deg);
             transition: all 0.3s linear;
         }
     }
     &:before {
 
         @include mobile5s {
-            transform: translate(0, 0) rotate(-135deg);
+            transform: translate(0, 0) rotate(45deg);
             transition: all 0.3s linear;
         }
     }
