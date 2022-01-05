@@ -632,7 +632,7 @@ a {
 // ----------------------------------- SLIDER ----------------------------------------------------------------
 .screen__content._lights {
     position: relative;
-    background: linear-gradient(to bottom, rgb(1, 22, 39)), url(img/bg__lights.png) center / cover no-repeat;
+    background: linear-gradient(to bottom, rgb(1, 22, 39));
     height: 100%;
     display: flex;
     align-items: center;
@@ -997,7 +997,7 @@ a {
     display: flex;
     align-items: center;
     height: 100%;
-    background: linear-gradient(to bottom, rgb(1, 22, 39)), url(img/bg__lights.png) center / cover no-repeat;
+    background: linear-gradient(to bottom, rgb(1, 22, 39));
 }
 .screen__about-us {
     display: flex;
