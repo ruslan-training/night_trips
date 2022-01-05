@@ -82,6 +82,10 @@ let sliderThoughts = new Swiper('.thoughts', {
 	
 	},
 
+	autoplay: {
+		delay: 3000,
+	  },
+
 	slidesPerView: 3,
 	spaceBetween: 15,
 	loop: true,
